@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Streaming Platform Checker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav>
+        <ul>
+            <li><a href="#" class="nav-link" data-content="Welcome to our streaming platform checker!">Home</a></li>
+            <li><a href="#" class="nav-link" data-content="This tool helps detect if movies are on verified platforms.">About</a></li>
+            <li><a href="#" class="nav-link" data-content="Contact us at: Name: Lakshman, Mobile: 7382192919, Email: lakshmanturimella@gmail.com">Contact</a></li>
+            <li><a href="#" class="nav-link" data-content="Need assistance? Learn more about using this tool.">Help</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <h2>Streaming Platform Movie Checker</h2>
+        <div class="input-group">
+            <label for="url">Enter URL (e.g., https://disney.com/spiderman):</label>
+            <input type="text" id="url" placeholder="e.g., https://disney.com/spiderman">
+        </div>
+        <div class="input-group">
+            <label for="keyword">Enter Movie Keyword:</label>
+            <input type="text" id="keyword" placeholder="e.g., spiderman">
+        </div>
+        <button onclick="checkPlatform()">Check Platform</button>
+        <div id="result" class="result"></div>
+    </div>
+
+    <!-- Content Display Area -->
+    <div id="content-display" class="content-display"></div>
+
+    <script src="script.js"></script>
+    <script>
+        // Get all navigation links and content display area
+        const navLinks = document.querySelectorAll('.nav-link');
+        const contentDisplay = document.getElementById('content-display');
+
+        // Loop through each link to add hover event listeners
+        navLinks.forEach(link => {
+            link.addEventListener('mouseover', () => {
+                contentDisplay.innerText = link.getAttribute('data-content'); // Set content based on hovered link
+                contentDisplay.style.display = 'block'; // Show content area
+            });
+
+            // Hide content when mouse leaves the link
+            link.addEventListener('mouseout', () => {
+                contentDisplay.style.display = 'none'; // Hide content area
+            });
+        });
+    </script>
+</body>
+</html>
